@@ -1,0 +1,92 @@
+
+{%extends 'base.html'%}
+{% load static %}
+
+    <!--ending header-->
+    {%block content%}
+
+    <div id="imgcontainer">
+        <div id="image1"></div>
+    </div>
+    <!--starting features section-->
+    <h2 id="features">Our Features</h2>      
+    <div class="shop">
+        <div class="shopimg">
+            <img src="{%static 'logo_img/content_images/s_img3.png'%}" class="sp"/>
+            <h3>100+ varieties</h3>
+        </div>    
+        <div class="shopimg">
+            <img src="{% static 'logo_img/content_images/s_img2.png'%}" class="sp"/>
+            <h3>Free delivery</h3>
+        </div>
+        <div class="shopimg">
+            <img src="{% static 'logo_img/content_images/s_img1.png'%}" class="sp"/>
+            <h3>24/7 support</h3>
+        </div>
+        <div class="shopimg">
+            <img src="{% static 'logo_img/content_images/s_img4.png'%}" class="sp"/>
+            <h3>save money</h3>
+        </div>
+    </div>
+    <!--ending features section-->
+    <!--category section-->
+    <h2 id="categorysection">Shop by Category</h2>
+    <section id="category">
+        <a href="{% url 'shop'%}#decoratives" target="main"><div class="c" style="background-image: url('{% static "logo_img/content_images/deco_plant.jpeg"%}');">Decorative plants</div></a>
+        <a href="{% url 'shop'%}#floweringp" target="main"><div class="c" style="background-image: url('{%static "logo_img/content_images/fplant.png"%}');">flowering plants</div></a>
+        <a href="{% url 'shop'%}#vegies" target="main"><div class="c" style="background-image: url('{% static "logo_img/content_images/vegies.png"%}');">vegetable plants</div></a>
+        <a href="{% url 'shop'%}#others"><div class="c" style="background-image: url('{% static "logo_img/content_images/otplant.png"%}');">other plants</div></a>
+    </section>
+    <!--starting plants display-->
+    <h2>products</h2>
+    <section>
+
+        <div id="p_section1">
+            {%for product in products%}
+            <div class="plant">
+                <img src="{{product.image.url}}" class="pt"/>
+                <h3 id="pname">{{product.title}}</h3>
+                <p>&#8377; {{product.price}}</p>
+                <span class="rate">
+                    <span>{{product.rating}}</span><span class="star"><i class="fa-solid fa-star"></i> </span> 
+                </span>
+                <form class="cart-form" method="POST" action="{% url 'add_to_cart' product.id%}">
+                    {% csrf_token %}
+                    <button class="cart" type=submit>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                </form>   
+            </div>
+            {%endfor%}
+        </div>
+
+    </section>
+    <br/>
+    <br/>
+    <div id="imgcontainer">
+        <div id="image2">
+            <h1 id="pname">Enjoy Gardening Experience</h1>
+            <br/>
+            <p>Shop now at 40% Off</p>
+        </div>
+    </div>
+    <h2 style="text-align: center;">New Arrivals</h2>
+    <br/>
+    <section id="flowering"> 
+        {%for new_plant in new_plants%}   
+        <div class="plant">
+            <img src="{{new_plant.image.url}}" class="pt"/>
+            <h3 id="pname">{{new_plant.title}}</h3>
+            <p>&#8377; {{new_plant.price}}</p>
+            <span class="rate">
+                <span>{{new_plant.rating}}</span><span class="star"><i class="fa-solid fa-star"></i> </span> 
+            </span>
+            <form class="cart-form" method="POST" action="{% url 'add_to_cart' new_plant.id%}">
+                {% csrf_token %}
+                <button class="cart" type=submit>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </form>   
+        </div>
+        {%endfor%}
+        
+    </section>
+    <br/>
+    {%endblock%}
+   

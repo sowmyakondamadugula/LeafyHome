@@ -1,0 +1,92 @@
+
+{%extends 'base.html'%}
+{% load static %}
+
+    <!--ending header-->
+{%block content%}
+    <section id="shopcontainer">
+        <h1>Stay home and shop</h1>
+        <p>get the best deals</p>
+    </section>
+    <!--starting plants display-->
+    <h2 id="decoratives">decorative plants</h2>
+    <section>
+        <div id="p_section1">
+          
+            {%for deco1 in deco%}
+            <div class="plant">
+                <img src="{{deco1.image.url}}" class="pt"/>
+                <h3>{{deco1.title}}</h3>
+                <p>&#8377; {{deco1.price}}</p>
+                <span class="rate">
+                    <span>{{deco1.rating}}</span><span class="star"><i class="fa-solid fa-star"></i> </span> 
+                </span>
+                <form class="cart-form" method="POST" action="{% url 'add_to_cart' deco1.id%}">
+                    {% csrf_token %}
+                    <button class="cart" type=submit>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                </form> 
+            </div>
+            {% endfor %}
+            
+        </div>
+    </section><br/>
+    <h2 id="floweringp">Flowering plants</h2>
+    <br/>
+    <section id="flowering">    
+        {%for flower in flowers%}
+        <div class="plant">
+            <img src="{{flower.image.url}}" class="pt"/>
+            <h3>{{flower.title}}</h3>
+            <p>&#8377; {{flower.price}}</p>
+            <span class="rate">
+                    <span>{{flower.rating}}</span><span class="star"><i class="fa-solid fa-star"></i> </span> 
+                </span>
+                <form class="cart-form" method="POST" action="{% url 'add_to_cart' flower.id%}">
+                    {% csrf_token %}
+                    <button class="cart" type=submit>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                </form> 
+        </div>
+        {%endfor%}
+    </section> <br/>
+    <h2 id="vegies">Vegetable plants</h2>
+    <section>
+        <div id="p_section1">
+
+            {%for veggie in veggies%}
+            <div class="plant">
+                <img src="{{veggie.image.url}}" class="pt"/>
+                <h3>{{veggie.title}}</h3>
+                <p>&#8377; {{veggie.price}}</p>
+                <span class="rate">
+                    <span>{{veggie.rating}}</span><span class="star"><i class="fa-solid fa-star"></i> </span> 
+                </span>
+                <form class="cart-form" method="POST" action="{% url 'add_to_cart' veggie.id%}">
+                    {% csrf_token %}
+                    <button class="cart" type=submit>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                </form> 
+            </div>
+            {%endfor%}
+        </div>
+    </section>
+    <br/>
+    <h2 id="others">Other plants</h2>
+    <section>
+        <div id="p_section1">
+            {%for other in others%}
+            <div class="plant">
+                <img src="{{other.image.url}}" class="pt"/>
+                <h3>{{other.title}}</h3>
+                <p>&#8377; {{other.price}}</p>
+               <span class="rate">
+                    <span>{{other.rating}}</span><span class="star"><i class="fa-solid fa-star"></i> </span> 
+                </span>
+                <form class="cart-form" method="POST" action="{% url 'add_to_cart' other.id%}">
+                    {% csrf_token %}
+                    <button class="cart" type=submit>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                </form> 
+            </div>
+            {%endfor%}
+        </div>
+    </section>
+    <br/>
+{%endblock%}

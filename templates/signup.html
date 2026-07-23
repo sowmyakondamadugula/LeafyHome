@@ -1,0 +1,74 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>LeafyHOME</title>
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="login-box">
+        <img class="logo_img" src="{% static 'logo_img/content_images/logo.png'%}" height="150px" width="180px">
+        <h2>Welcome Back</h2>
+        <p>Sign up</p>
+
+        {% if messages %}
+    {% for message in messages %}
+        <p style="color:red;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text"
+                       name="username"
+                       placeholder="Username"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email"
+                       name="email"
+                       placeholder="Email"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel"
+                       name="phone"
+                       placeholder="Phone Number"
+                       pattern="[6-9][0-9]{9}"
+                       maxlength="10"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password"
+                       name="password"
+                       placeholder="Password"
+                       required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                sign up
+            </button>
+           
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>

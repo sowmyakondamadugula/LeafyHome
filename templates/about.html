@@ -1,0 +1,59 @@
+
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+    <!--image-->
+    <section id="aboutcontainer">
+        <h1>#About Us</h1>
+    </section>
+    <section id="about1">
+        <img src="{% static 'logo_img/content_images/aboutimg2.png' %}" alt="image">
+        <div>
+            <h1>Who Are We?</h1>
+            <p>We're not just an e-commerce platform;we're green oasis in the digital world.
+                With a commitment to sustainability and customer satisfaction,We're here to help you bring nature home.
+                Explore our botanical haven and let us be your partner in cultivating beauty.
+            </p>
+            <p>Our journey began with a simple love for plants and a desire to share that joy with others. 
+                Each plant in our collection is carefully sourced and nurtured to ensure optimal health and vitality upon arrival at your doorstep.
+                join us and promote greenary in every home and every street.
+            </p>
+        </div>
+    </section>
+    <!--promotion-->
+    <section id="about2">
+        <span>
+            <h1>Why To Choose Us?</h1>
+            <p>At LeafyHOMES, our mission is to enrich lives through plants. Whether you're a seasoned gardener or just starting your plant journey, 
+            we're here to inspire, educate, and support you every step of the way.
+            From helpful tips and advice to personalized recommendations, we're dedicated to helping you cultivate a green space that brings you joy and serenity.
+            Each plant in our collection is carefully sourced and nurtured to ensure optimal health and vitality upon arrival at your doorstep.
+            </p>
+        </span>
+        <div>
+            <img src="{% static 'logo_img/content_images/aboutimg3.png'%}" alt="image3">
+        </div>
+    </section>
+    <!--features-->
+    <h2 id="features">Our Features</h2>      
+    <div class="shop">
+        <div class="shopimg">
+            <img src="{% static 'logo_img/content_images/s_img3.png' %}" class="sp"/>
+            <h3>100+ varieties</h3>
+        </div>    
+        <div class="shopimg">
+            <img src="{% static 'logo_img/content_images/s_img2.png'%}" class="sp"/>
+            <h3>Free delivery</h3>
+        </div>
+        <div class="shopimg">
+            <img src="{% static 'logo_img/content_images/s_img1.png'%}" class="sp"/>
+            <h3>24/7 support</h3>
+        </div>
+        <div class="shopimg">
+            <img src="{% static 'logo_img/content_images/s_img4.png'%}" class="sp"/>
+            <h3>save money</h3>
+        </div>
+    </div>
+    <br/>
+    <!--footer-->
+{%endblock%}
