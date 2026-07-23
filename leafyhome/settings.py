@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-p4p#)9pq3s4b+ldz1%h7uzf7i#a=*=fh&x*-41d&ew$b=d857@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "leafyhome-1.onrender.com",
+]
 
 
 # Application definition
